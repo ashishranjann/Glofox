@@ -9,9 +9,9 @@ Glofox is a SaaS platform for boutiques, studios, and gyms that allows business 
 go mod tidy
 go run cmd/server/main.go
 
-📌 API Endpoints
+# API Endpoints
 
-1️⃣ Create Class
+# Create Class
 POST /classes
 Request Body:
 {
@@ -25,7 +25,7 @@ curl -X POST http://localhost:8080/classes \
 -H "Content-Type: application/json" \
 -d '{"name":"Pilates","start_date":"2026-12-01","end_date":"2026-12-20","capacity":20}'
 
-2️⃣ Book a Class
+# Book a Class
 POST /bookings
 Request Body:
 {
@@ -37,3 +37,12 @@ Curl:
 curl -X POST http://localhost:8080/bookings \
 -H "Content-Type: application/json" \
 -d '{"name":"Ashish","date":"2026-12-16","class_name":"Pilates"}'
+
+## Testing
+Unit tests are written for the service layer to validate core business logic.
+
+# Run All Tests
+go test ./...
+
+# Run Tests with Coverage
+go test -cover ./...
