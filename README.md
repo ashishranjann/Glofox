@@ -3,6 +3,7 @@ Glofox is a SaaS platform for boutiques, studios, and gyms that allows business 
 
 - boutiques, studios, and gyms owners to create classes  
 - Members to book classes  
+- In-memory storage
 
 ## To Run
 go mod tidy
