@@ -21,7 +21,10 @@ func (s *BookingService)CreateBooking(req *model.BookingRequest) error {
 		return errors.New("Invalid request")
 	}
 
-	date, _ := utils.ParseDate(req.Date)
+	date, err := utils.ParseDate(req.Date)
+	if err != nil {
+		return err
+	}
 
 	s.store.Mu.RLock()
 	class, exists := s.store.Classes[req.Class_name]

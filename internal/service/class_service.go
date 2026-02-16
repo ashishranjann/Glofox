@@ -23,8 +23,15 @@ func (s *ClassService) CreateClass(req *model.ClassRequest) error {
 		return errors.New("invalid request")
 	}
 
-	start, _ := utils.ParseDate(req.Start_date)
-	end, _ := utils.ParseDate(req.End_date)
+	start, err := utils.ParseDate(req.Start_date)
+	if err != nil {
+		return err
+	}
+
+	end, err := utils.ParseDate(req.End_date)
+	if err != nil {
+		return err
+	}
 
 	s.store.Mu.Lock()
 	defer s.store.Mu.Unlock()
